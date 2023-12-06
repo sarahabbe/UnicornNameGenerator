@@ -1,0 +1,118 @@
+﻿[
+  {
+    "RuleId": "ST-USG-026",
+    "RuleName": "Activity Restrictions",
+    "Parameters": [
+      {
+        "Key": "ProhibitedActivities",
+        "UserValue": "",
+        "DefaultValue": "",
+        "LocalizedName": "Prohibited Activities",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "AllowedActivities",
+        "UserValue": "",
+        "DefaultValue": "",
+        "LocalizedName": "Allowed Activities",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-027",
+    "RuleName": "Required Packages",
+    "Parameters": [
+      {
+        "Key": "RequiredPackages",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Required Package References",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-014",
+    "RuleName": "Package Restrictions",
+    "Parameters": [
+      {
+        "Key": "ProhibitedPackages",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Prohibited Packages",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "AllowedPackages",
+        "UserValue": null,
+        "DefaultValue": null,
+        "LocalizedName": "Allowed Packages",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "MA-DBP-028",
+    "RuleName": "Empty Use Outlook Account activity",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "UX-SEC-010",
+    "RuleName": "App/Url Restrictions",
+    "Parameters": [
+      {
+        "Key": "blacklistApps",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Prohibited Applications:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "whitelistApps",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Allowed Applications:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "blacklistUrls",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Prohibited Urls:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "whitelistUrls",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Allowed Urls:",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "UX-DBP-029",
+    "RuleName": "Insecure Password Use",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "XL-DBP-027",
+    "RuleName": "Empty Use Excel File Activity",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  }
+]
