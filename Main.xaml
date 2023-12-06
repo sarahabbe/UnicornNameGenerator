@@ -54,6 +54,7 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Pipelines.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -118,6 +119,7 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Pipelines.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="704,3471.3333333333335" sap2010:WorkflowViewState.IdRef="SequenceX_1">
@@ -125,6 +127,11 @@
       <Variable x:TypeArguments="ue:IWorkbookQuickHandle" Default="[new WorkbookQuickHandle(workbookPath:=&quot;Project_Notebook.xlsx&quot;,visible:=True,autoSave:=False,createNew:=True,readOnly:=False,isWorkspace:=True)]" Name="Notes" />
       <Variable x:TypeArguments="x:Int32" Name="Counter" />
       <Variable x:TypeArguments="x:String" Name="_out_NGetText_1__TextString" />
+      <Variable x:TypeArguments="x:String" Name="EmailRecipient">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">bob.jones@uipath.com</Literal>
+        </Variable.Default>
+      </Variable>
     </ueab:SequenceX.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -280,7 +287,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Outlook]" Body="[Counter.ToString + &quot; Unicorn Names submitted on &quot; + Date.Now.ToString]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,432.6666666666667" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Unicorn Names" To="bob.jones@uipath.com" UseDocumentAsBody="False">
+            <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Outlook]" Body="[Counter.ToString + &quot; Unicorn Names submitted on &quot; + Date.Now.ToString]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,432.6666666666667" sap2010:WorkflowViewState.IdRef="SendMailX_2" Importance="Normal" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="Unicorn Names" To="[EmailRecipient]" UseDocumentAsBody="False">
               <umab:SendMailX.Files>
                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="1">
                   <InArgument x:TypeArguments="x:String">UnicornNames.xlsx</InArgument>
@@ -297,7 +304,7 @@
                 </umabh:HtmlContentArgument>
               </umab:SendMailX.HtmlBodyFromFile>
             </umab:SendMailX>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Unicorn Names sent to bob.jones@uipath.com&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Unicorn Names sent to &quot; + EmailRecipient]" />
           </Sequence>
         </ActivityAction>
       </umab:OutlookApplicationCard.Body>
